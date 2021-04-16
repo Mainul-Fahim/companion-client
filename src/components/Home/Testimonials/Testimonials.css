@@ -1,0 +1,20 @@
+.testimonials .container{
+    /* background-image: url(../../../images/cavity.png); */
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 150px;
+    background-color: black;
+}
+.testimonials .card{
+    border-color: transparent;
+    background-color: goldenrod;
+}
+
+.testimonials .card .card-footer{
+    background: transparent;
+    border: 0;
+}
+.testimonials .card .card-footer img{
+    border-radius: 25px;
+    border: 1px solid aquamarine;
+}
