@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../../../App';
 
 const Navbar = () => {
+    const [loggedInUser,setLoggedInUser]=useContext(UserContext);
     return (
         <div className="row">
             <div className="col-md-4">
@@ -30,7 +32,7 @@ const Navbar = () => {
                             <a class="nav-link  me-5" href="#">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  me-5 btn-primary text-white" href="#">Login</a>
+                            {loggedInUser.email?loggedInUser.email:<a class="nav-link  me-5 btn-primary text-white" href="/login">Login</a>}
                         </li>
                     </ul>
 
