@@ -15,8 +15,10 @@ import ServiceList from './components/Dashboard/Admin/ServiceList/ServiceList';
 import AddService from './components/Dashboard/Admin/AddService/AddService';
 import MakeAdmin from './components/Dashboard/Admin/MakeAdmin/MakeAdmin';
 import ManageService from './components/Dashboard/Admin/ManageService/ManageService';
-import Checkout from './components/Dashboard/User/Checkout/Checkout';
 import AddReview from './components/Dashboard/User/AddReview/AddReview';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import OrderedList from './components/Dashboard/User/OrderedList/OrderedList';
+import Checkout from './components/Dashboard/User/Checkout/Checkout';
 
 export const UserContext = createContext();
 
@@ -39,9 +41,9 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
-          </Route>
+          </PrivateRoute>
           <Route path="/addService">
             <AddService></AddService>
           </Route>
@@ -60,12 +62,18 @@ function App() {
           <Route path="/addReview">
             <AddReview></AddReview>
           </Route>
+          <Route path="/orderedList">
+            <OrderedList></OrderedList>
+          </Route>
           {/* <PrivateRoute path="/checkout/:id">
             <CheckOut></CheckOut>
           </PrivateRoute>
           <PrivateRoute path="/orders">
             <Orders></Orders>
           </PrivateRoute> */}
+          <PrivateRoute path="/checkout/:id">
+            <Checkout></Checkout>
+          </PrivateRoute>
           <Route path="*">
             <NotFound></NotFound>
           </Route>

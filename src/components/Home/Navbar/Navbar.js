@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 
 const Navbar = () => {
@@ -25,14 +26,16 @@ const Navbar = () => {
                         <li class="nav-item">
                             <a class="nav-link  me-5" href="#reviews">Reviews</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link  me-5" href="/dashboard">Admin</a>
+                        <li class="nav-item p-2 me-2">
+                        <Link to="/dashboard" >
+                             <span>Dashboard</span>
+                        </Link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link  me-5" href="#">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            {loggedInUser.email?loggedInUser.email:<a class="nav-link  me-5 btn-primary text-white" href="/login">Login</a>}
+                            {loggedInUser.email?loggedInUser.name:<a class="nav-link  me-5 btn-primary text-white" href="/login">Login</a>}
                         </li>
                     </ul>
 

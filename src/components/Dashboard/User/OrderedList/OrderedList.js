@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../../../App';
-import Sidebar from '../Sidebar/Sidebar';
+import React from 'react';
+import Sidebar from '../../Sidebar/Sidebar';
 
 const containerStyle = {
     backgroundColor: "#F4FDFB",
     height:"100%"
 }
-const Dashboard = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+const OrderedList = () => {
     return (
         <section>
             <div style={containerStyle} className="container-fluid row">
@@ -15,11 +13,11 @@ const Dashboard = () => {
                     <Sidebar></Sidebar>
                 </div>
                 <div className="col-md-10 d-flex justify-content-center">
-                    <h1>Welcome {loggedInUser.name}</h1>
+                    <h1>OrderedList</h1>
                 </div>
             </div>
         </section>
     );
 };
 
-export default Dashboard;
+export default OrderedList;
