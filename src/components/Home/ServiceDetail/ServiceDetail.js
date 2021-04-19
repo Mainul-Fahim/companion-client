@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './ServiceDetail.css';
 
 const ServiceDetail = ({service}) => {
     return (
-        <div className="col-md-4 text-center">
+        <div className="col-md-4 text-center service">
             <img style={{height:'200px'}} src={service.imageUrl} alt=""/>
             <h5 className="mt-3 mb-3">{service.serviceName}</h5>
             <strong>{service.price}</strong>

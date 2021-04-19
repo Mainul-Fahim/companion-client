@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useParams
 } from "react-router-dom";
 import Header from './components/Home/Header/Header';
 import Home from './components/Home/Home/Home';
@@ -35,6 +36,12 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
+          <PrivateRoute path="/checkout/:id">
+            <Checkout></Checkout>
+          </PrivateRoute>
+          <PrivateRoute path="/orders">
+            <OrderedList></OrderedList>
+          </PrivateRoute>
           <Route path="/home">
             <Home></Home>
           </Route>
@@ -56,9 +63,9 @@ function App() {
           <Route path="/serviceList">
             <ServiceList></ServiceList>
           </Route>
-          <Route path="/checkout">
+          {/* <Route path="/checkout">
             <Checkout></Checkout>
-          </Route>
+          </Route> */}
           <Route path="/addReview">
             <AddReview></AddReview>
           </Route>
@@ -71,9 +78,7 @@ function App() {
           <PrivateRoute path="/orders">
             <Orders></Orders>
           </PrivateRoute> */}
-          <PrivateRoute path="/checkout/:id">
-            <Checkout></Checkout>
-          </PrivateRoute>
+          
           <Route path="*">
             <NotFound></NotFound>
           </Route>
