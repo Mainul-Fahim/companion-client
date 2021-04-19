@@ -17,15 +17,15 @@ const ManageService = () => {
 
     const deleteService=id=>{
         console.log(id);
-        // fetch(`https://limitless-plateau-92194.herokuapp.com/delete/${id}`,{
-        //     method: 'DELETE'
-        // })
-        // .then(res=>res.json())
-        // .then(result =>{
-        //     console.log("deleted",result);
-        //     const deletedBook =document.getElementById('deletedService');
-        //     deletedBook.style.display = 'none';
-        // })
+        fetch(`http://localhost:5000/delete/${id}`,{
+            method: 'DELETE'
+        })
+        .then(res=>res.json())
+        .then(result =>{
+            console.log("deleted",result);
+            const deletedBook =document.getElementById('deletedService');
+            deletedBook.style.display = 'none';
+        })
    }
     return (
         <section>
@@ -36,7 +36,7 @@ const ManageService = () => {
                 <div className="col-md-10 mb-5">
                     <h1 className="text-center">Manage Services</h1>
                     <br/>
-                    <div style={{border: '1px solid cyan',height: '500px'}} className="ms-5 pt-5 ps-5">
+                    <div style={{border: '1px solid cyan',height: '500px'}} className="ms-5 pt-5 ps-5 pe-5">
                     <table class="table table-striped table-dark">
                     <thead>
                         <tr>

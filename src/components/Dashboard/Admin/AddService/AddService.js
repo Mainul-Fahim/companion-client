@@ -31,7 +31,8 @@ const AddService = () => {
             body: JSON.stringify(serviceData)
         })
             .then(res => {
-                console.log(res)
+                console.log(res);
+                alert('Successfully Added');
             })
 
     };

@@ -4,7 +4,7 @@ import './ServiceDetail.css';
 
 const ServiceDetail = ({service}) => {
     return (
-        <div className="col-md-4 text-center service">
+        <div className="col-md-4 text-center service p-3">
             <img style={{height:'200px'}} src={service.imageUrl} alt=""/>
             <h5 className="mt-3 mb-3">{service.serviceName}</h5>
             <strong>{service.price}</strong>
