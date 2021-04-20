@@ -19,7 +19,7 @@ const Checkout = () => {
     const [checkOutDate, setCheckOutDate] = useState({ orderDate: new Date() });
     const [orderDetails, setOrderDetails] = useState({});
     const [shippingData, setShippingData] = useState(null);
-    const [orderStatus, setOrderStatus] = useState({pending:'pending'});
+    const [orderStatus, setOrderStatus] = useState('Pending');
 
     useEffect(() => {
 

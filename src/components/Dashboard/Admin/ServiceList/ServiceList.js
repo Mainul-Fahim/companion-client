@@ -9,7 +9,7 @@ const containerStyle = {
 const ServiceList = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [allOrders, setAllOrders] = useState([]);
-    const [orderStatus, setOrderStatus]=useState({pending:'pending'});
+    const [orderStatus, setOrderStatus]=useState('Pending');
 
     useEffect(() => {
         fetch('https://safe-dusk-28084.herokuapp.com/allOrders')
@@ -22,13 +22,12 @@ const ServiceList = () => {
     const handleStatus = id => {
         console.log('clicked',id);
         const status=document.getElementById("status").value;
-        const statusData={status};
-        setOrderStatus(statusData);
-        console.log(orderStatus);
+        setOrderStatus(status);
+        console.log(status);
         fetch(`https://safe-dusk-28084.herokuapp.com/update/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderStatus)
+            body: JSON.stringify(status)
         })
             .then(res => res.json())
             .then(data => {
