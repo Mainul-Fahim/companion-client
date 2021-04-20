@@ -8,8 +8,9 @@ const containerStyle = {
 }
 const ServiceList = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
     const [allOrders, setAllOrders] = useState([]);
+    const [orderStatus, setOrderStatus]=useState({pending:'pending'});
+
     useEffect(() => {
         fetch('https://safe-dusk-28084.herokuapp.com/allOrders')
             .then(res => res.json())
@@ -18,6 +19,26 @@ const ServiceList = () => {
                 setAllOrders(data)
             });
     }, [])
+    const handleStatus = id => {
+        console.log('clicked',id);
+        const status=document.getElementById("status").value;
+        const statusData={status};
+        setOrderStatus(statusData);
+        console.log(orderStatus);
+        fetch(`https://safe-dusk-28084.herokuapp.com/update/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderStatus)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data)
+                    {alert("status Changed");
+                        setOrderStatus(data);
+                    }
+            });
+      };
     return (
         <section>
 
@@ -47,7 +68,13 @@ const ServiceList = () => {
                                         <td>{service.email}</td>
                                         <td>{service.serviceName}</td>
                                         <td>{service.orderDate}</td>
-                                        <td>Pending</td></tr>)
+                                        <td><label for="status"></label>
+
+                                            <select onChange={() =>handleStatus(service._id)} id="status">
+                                                <option value="ongoing">Ongoing</option>
+                                                <option value="done">Done</option>
+                                                <option value="pending" selected>Pending</option>
+                                            </select></td></tr>)
                                 }
 
 

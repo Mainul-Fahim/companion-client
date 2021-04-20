@@ -19,6 +19,7 @@ const Checkout = () => {
     const [checkOutDate, setCheckOutDate] = useState({ orderDate: new Date() });
     const [orderDetails, setOrderDetails] = useState({});
     const [shippingData, setShippingData] = useState(null);
+    const [orderStatus, setOrderStatus] = useState({pending:'pending'});
 
     useEffect(() => {
 
@@ -40,7 +41,7 @@ const Checkout = () => {
       };
     const handlePaymentSuccess = paymentId => {
       
-        const orderedBook = { ...loggedInUser, ...checkOutDate, ...orderDetails,paymentId ,shipment:shippingData};
+        const orderedBook = { ...loggedInUser, ...checkOutDate, ...orderDetails,paymentId ,shipment:shippingData,orderStatus};
         fetch('https://safe-dusk-28084.herokuapp.com/addOrders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
