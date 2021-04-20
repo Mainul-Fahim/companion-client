@@ -36,7 +36,7 @@ const ManageService = () => {
                 <div className="col-md-10 mb-5">
                     <h1 className="text-center">Manage Services</h1>
                     <br/>
-                    <div style={{border: '1px solid cyan',height: '500px'}} className="ms-5 pt-5 ps-5 pe-5">
+                    <div style={{border: '1px solid cyan',height: '500px'}} className="ms-5 pt-5 ps-5 pe-5 table-responsive-sm">
                     <table class="table table-striped table-dark">
                     <thead>
                         <tr>
