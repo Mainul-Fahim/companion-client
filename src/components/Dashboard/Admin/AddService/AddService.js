@@ -22,7 +22,7 @@ const AddService = () => {
             price: data.price,
             imageUrl: imageUrl,
         };
-        const url = `http://localhost:5000/addService`;
+        const url = `https://safe-dusk-28084.herokuapp.com/addService`;
         fetch(url, {
             method: 'POST',
             headers: {

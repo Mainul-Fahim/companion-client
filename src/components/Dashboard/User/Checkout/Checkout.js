@@ -22,7 +22,7 @@ const Checkout = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/service/${id}`)
+        fetch(`https://safe-dusk-28084.herokuapp.com/service/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -41,7 +41,7 @@ const Checkout = () => {
     const handlePaymentSuccess = paymentId => {
       
         const orderedBook = { ...loggedInUser, ...checkOutDate, ...orderDetails,paymentId ,shipment:shippingData};
-        fetch('http://localhost:5000/addOrders', {
+        fetch('https://safe-dusk-28084.herokuapp.com/addOrders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderedBook)

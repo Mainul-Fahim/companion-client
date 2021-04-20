@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://safe-dusk-28084.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -25,7 +25,7 @@ const Sidebar = () => {
         <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
 
-                {isAdmin && <div>
+                {isAdmin ? <div>
                     <li>
                         <Link to="/serviceList" className="text-white">
                             <FontAwesomeIcon icon={faUsers} /> <span>Service List</span>
@@ -46,8 +46,8 @@ const Sidebar = () => {
                             <FontAwesomeIcon icon={faGripHorizontal} /> <span>Manage Services</span>
                         </Link>
                     </li>
-                </div>}
-                {!isAdmin && <div>
+                </div>
+                 :<div>
                     <li>
                         <Link to="/checkout/id" className="text-white">
                             <FontAwesomeIcon icon={faCalendar} /> <span>Checkout</span>
@@ -64,7 +64,8 @@ const Sidebar = () => {
                             <FontAwesomeIcon icon={faCog} /> <span>OrderedList</span>
                         </Link>
                     </li>
-                </div>}
+                </div>
+                }
             </ul>
             <div>
                 <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>

@@ -22,7 +22,7 @@ const AddReview = () => {
             designation:data.designation,
             imageUrl: imageUrl,
         };
-        const url=`http://localhost:5000/addReview`;
+        const url=`https://safe-dusk-28084.herokuapp.com/addReview`;
         fetch(url,{
             method: 'POST',
             headers: {
