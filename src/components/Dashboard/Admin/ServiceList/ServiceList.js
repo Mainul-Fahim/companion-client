@@ -22,7 +22,6 @@ const ServiceList = () => {
     const handleStatus = id => {
         console.log('clicked',id);
         const status=document.getElementById("status").value;
-        setOrderStatus(status);
         console.log(status);
         fetch(`https://safe-dusk-28084.herokuapp.com/update/${id}`, {
             method: 'PATCH',
@@ -34,7 +33,7 @@ const ServiceList = () => {
                 console.log(data);
                 if(data)
                     {alert("status Changed");
-                        setOrderStatus(data);
+                        //setOrderStatus(data);
                     }
             });
       };
